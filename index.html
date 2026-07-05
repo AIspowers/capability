@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIsuperpowers · Capability &amp; Selected Work</title>
+<!-- v7, 2026-07-05. Round 4: glance labels minimal, defend/verified lines removed, rails in serif italic w/ orange dt, intro+brain bodies = 1 paragraph + orange-square bullets, ledger simplified, colophon disclaimers removed, orange+serif brush (eyebrows, contents nos, cpart caps, fig units, painline rule, cap/stage titles), tone confident. Prior: v5/v6 notes: Agnostic edition: no client names. Pain-led copy, tone rebalanced (no "bleeding"/"leak" repetition; varied: slipping away, friction, cost, drain, losses, waste). Diagram 1: snake-and-ladders board (3 rows: find/build/own), framed like an architectural drawing, packed with parcels, chips, and a driving car. Diagram 2: Gemini masterplan image (img-brain-v4.jpg) with an animated SVG overlay (pulses to the core, breathing glow, halo on the arriving orange block). Motion is CSS-only and disabled in print. All figures verified; platform metrics pulled 4 July 2026. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root, html[data-theme=light]{
+  --paper:#FFFBF2; --ink:#141B26; --ink2:#3E4A5C; --mute:#7C8798;
+  --rule:#DCD2BE; --rule2:#C9BEA6; --ghost:rgba(20,27,38,.07);
+  --accent:#EA580C; --plate:#FFFBEB;
+}
+html[data-theme=dark]{
+  --paper:#10161F; --ink:#F4EFE4; --ink2:#C3CBD8; --mute:#8792A3;
+  --rule:#2A3444; --rule2:#3A4557; --ghost:rgba(244,239,228,.06);
+  --accent:#F97316; --plate:#FFFBEB;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums}
+.serif{font-family:"Playfair Display",Georgia,serif}
+.caps{font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--mute)}
+.page{max-width:1060px;margin:0 auto;padding:0 clamp(22px,5vw,64px)}
+p{margin:0 0 1em}
+.measure{max-width:66ch}
+
+/* running footer */
+.running{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:space-between;gap:16px;padding:10px clamp(22px,5vw,64px);font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(6px);border-top:1px solid var(--rule)}
+.running .theme{cursor:pointer;text-decoration:underline;text-underline-offset:3px;background:none;border:none;font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;padding:0}
+@media(max-width:700px){.running .mid{display:none}}
+
+/* cover */
+.cover{min-height:94vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px;padding-bottom:80px}
+.cover .firm{font-size:clamp(38px,5.6vw,64px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.cover .firm b{color:var(--accent);font-weight:700}
+.cover .titlerule{border:none;border-top:1px solid var(--ink);width:76px;margin:34px 0}
+.cover h1{font-weight:500;font-size:clamp(30px,4.2vw,52px);line-height:1.12;margin:0 0 26px}
+.cover .conf{font-size:13.5px;color:var(--mute)}
+
+/* contents */
+.contents{padding:20px 0 70px}
+.contents .row{display:grid;grid-template-columns:64px 1fr auto;gap:22px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
+.contents .row:first-of-type{border-top:1px solid var(--ink)}
+.contents .no{font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.contents .t{font-family:"Playfair Display",serif;font-size:21px;font-weight:500}
+.contents .d{font-size:13px;color:var(--mute);text-align:right;max-width:340px}
+@media(max-width:700px){.contents .row{grid-template-columns:44px 1fr}.contents .d{display:none}}
+
+/* chapter break */
+.chapter{padding:96px 0 8px;position:relative}
+.chapter .ghost{position:absolute;top:34px;right:0;font-size:clamp(90px,14vw,170px);font-weight:600;line-height:1;color:var(--ghost);font-variant-numeric:tabular-nums;user-select:none;pointer-events:none}
+.chapter .eyebrow{margin-bottom:18px;color:var(--accent)}
+.chapter h2{font-weight:500;font-size:clamp(32px,4.4vw,50px);line-height:1.1;margin:0 0 18px;max-width:16em}
+.chapter .deck{font-size:20px;line-height:1.6;color:var(--ink2);max-width:58ch;margin:0 0 34px}
+.chapter .openrule{border:none;border-top:1px solid var(--ink);margin:0 0 26px;width:64px}
+
+/* asymmetric grid */
+.spread{display:grid;grid-template-columns:200px 1fr;gap:44px;padding:8px 0 34px}
+@media(max-width:820px){.spread{grid-template-columns:1fr;gap:10px}}
+.rail{font-size:12.5px;color:var(--mute);line-height:1.8}
+.rail dl{margin:0}
+.rail dt{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-top:14px}
+.rail dd{margin:2px 0 0;font-size:15px;color:var(--ink2);font-family:"Playfair Display",Georgia,serif;font-style:italic;line-height:1.6}
+.bullets{list-style:none;margin:0 0 1em;padding:0}
+.bullets li{position:relative;padding-left:24px;margin:0 0 10px;color:var(--ink2)}
+.bullets li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;background:var(--accent);border-radius:2px}
+.bullets li b{color:var(--ink);font-weight:600}
+
+/* figure plates (images) */
+.figure{position:relative;background:var(--plate);border:1px solid var(--rule);margin:26px 0 8px}
+.figure img{display:block;width:100%;height:auto}
+.figure .lab{position:absolute;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#3E4A5C;background:rgba(255,251,235,.88);padding:4px 9px;border-left:2px solid #EA580C;cursor:default;transition:.15s;white-space:nowrap}
+.figure .lab:hover{color:#141B26;background:#FFFBEB}
+.figcap{font-size:12.5px;color:var(--mute);margin:10px 0 0}
+@media(max-width:820px){
+  .figure .lab{display:none}
+  .figcap-mobile{display:block!important}
+}
+.figcap-mobile{display:none;font-size:12px;color:var(--mute);margin-top:8px}
+
+/* animated site-plan diagrams */
+.dgm{display:block;width:100%;height:auto}
+.dgm text{font-family:Inter,-apple-system,sans-serif}
+.dgm .ct{font-size:19px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;fill:#141B26}
+.dgm .cb{font-size:16.5px;fill:#3E4A5C}
+.dgm .cn{font-size:17px;font-weight:600;fill:#FFFBEB}
+.dgm .note{font-size:15.5px;font-style:italic;fill:#7C8798}
+.dgm .ft{font-size:15px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;fill:#7C8798}
+.figure .ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.dgm .hubt{font-size:23px;font-weight:700;letter-spacing:.14em;fill:#FFFBEB}
+.dgm .hubs{font-size:13.5px;font-weight:600;letter-spacing:.13em;fill:#C9BEA6}
+.dgm .roadline{stroke-dasharray:16 22;animation:dgmdash 1.5s linear infinite}
+@keyframes dgmdash{to{stroke-dashoffset:-38}}
+.dgm .car{offset-rotate:auto;offset-distance:16%;animation:dgmdrive 44s linear infinite}
+@keyframes dgmdrive{from{offset-distance:0%}to{offset-distance:100%}}
+.dgm .flow{stroke-dasharray:5 13;animation:dgmflow 1.3s linear infinite}
+.dgm .flow.rev{animation-direction:reverse}
+@keyframes dgmflow{to{stroke-dashoffset:-18}}
+.dgm .dot{offset-rotate:0deg;offset-distance:55%;animation:dgmdot 7s linear infinite}
+@keyframes dgmdot{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.dgm .halo{opacity:.2;animation:dgmhalo 7s ease-in-out infinite}
+@keyframes dgmhalo{0%,60%,100%{opacity:.12}22%{opacity:.85}}
+.dgm .breathe{transform-box:fill-box;transform-origin:center;animation:dgmbreathe 6s ease-in-out infinite}
+@keyframes dgmbreathe{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.62;transform:scale(1.05)}}
+.dgm .blockglow{animation:dgmbreathe 5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.dgm *{animation:none!important}}
+
+/* value ledger */
+.figrow{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);margin:10px 0 26px}
+.figrow .fig{padding:26px 26px 24px 0;border-right:1px solid var(--rule)}
+.figrow .fig:last-child{border-right:none}
+.figrow .fig + .fig{padding-left:26px}
+.fig .n{font-family:"Playfair Display",serif;font-weight:600;font-size:clamp(40px,5.2vw,68px);line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.fig .n small{font-size:.5em;font-weight:500;color:var(--accent)}
+.fig .l{font-size:13px;color:var(--ink2);margin-top:10px;line-height:1.55}
+@media(max-width:820px){.figrow{grid-template-columns:1fr 1fr}.figrow .fig{border-right:none;border-bottom:1px solid var(--rule);padding-left:0}.figrow .fig + .fig{padding-left:0}}
+.ledgerline{font-size:15px;color:var(--ink)}
+
+/* case studies */
+.case{border-top:1px solid var(--ink);padding:40px 0 46px;position:relative}
+.case>.ghost{position:absolute;top:30px;right:0;font-size:clamp(64px,8.5vw,112px);font-weight:600;line-height:1;color:var(--ghost);font-variant-numeric:tabular-nums;user-select:none;pointer-events:none}
+.case .chead{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:8px}
+.case .cno{font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.case h3{font-family:"Playfair Display",serif;font-weight:500;font-size:clamp(24px,3vw,32px);margin:0}
+.case .meta{width:100%;font-size:12px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.case .meta span + span::before{content:"·";margin:0 9px;color:var(--rule2)}
+.cbody{display:grid;grid-template-columns:200px 1fr;gap:44px;margin-top:22px}
+@media(max-width:820px){.cbody{grid-template-columns:1fr;gap:16px}}
+.cpart{margin-bottom:16px}
+.cpart .caps{display:block;margin-bottom:6px;color:var(--accent)}
+.cpart p{font-size:15.5px;color:var(--ink2);margin:0}
+.painline{font-family:"Playfair Display",serif;font-size:19px;line-height:1.55;color:var(--ink);margin:0 0 18px;max-width:34em;border-left:2px solid var(--accent);padding-left:16px}
+.cfacts{border-top:2px solid var(--ink);padding-top:14px}
+.cfacts .f{padding:10px 0;border-bottom:1px solid var(--rule)}
+.cfacts .f:last-child{border-bottom:none}
+.cfacts .fn{font-family:"Playfair Display",serif;font-weight:600;font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cfacts .fl{font-size:11.5px;color:var(--mute);margin-top:3px;line-height:1.45}
+
+/* capabilities + stages */
+.cap{display:grid;grid-template-columns:220px 1fr;gap:44px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.cap:first-of-type{border-top:1px solid var(--ink)}
+@media(max-width:820px){.cap{grid-template-columns:1fr;gap:6px}}
+.cap b{font-family:"Playfair Display",serif;font-size:18.5px;font-weight:600}
+.cap p{font-size:15px;color:var(--ink2);margin:0;max-width:66ch}
+.cap .proof{display:block;margin-top:6px;font-size:12px;color:var(--mute)}
+.stages{border-top:1px solid var(--ink);margin-top:8px}
+.stage{display:grid;grid-template-columns:64px 220px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+@media(max-width:820px){.stage{grid-template-columns:44px 1fr}.stage p{grid-column:2}}
+.stage .sn{font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.stage b{font-family:"Playfair Display",serif;font-size:18.5px;font-weight:600}
+.stage p{font-size:15px;color:var(--ink2);margin:0}
+
+/* principal + colophon */
+.principal .name{font-family:"Playfair Display",serif;font-size:28px;font-weight:500;margin:0 0 4px}
+.principal .role{font-size:13px;color:var(--mute);margin-bottom:16px}
+.colophon{margin-top:70px;border-top:1px solid var(--ink);padding:30px 0 90px;display:grid;grid-template-columns:1fr 1fr;gap:30px;font-size:13.5px;color:var(--ink2)}
+@media(max-width:700px){.colophon{grid-template-columns:1fr}}
+.colophon .caps{display:block;margin-bottom:8px}
+.colophon a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule2)}
+.colophon .right{text-align:right}
+@media(max-width:700px){.colophon .right{text-align:left}}
+
+/* print */
+@media print{
+  html[data-theme=dark]{--paper:#FFFFFF;--ink:#141B26;--ink2:#3E4A5C;--mute:#7C8798;--rule:#D8D2C2;--rule2:#C9BEA6;--ghost:rgba(20,27,38,.07);--accent:#EA580C;--plate:#FFFBEB}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .dgm *{animation:none!important}
+  body{background:#fff;font-size:12.5pt}
+  .running{display:none}
+  .cover{min-height:auto;padding:30mm 0 40mm}
+  .chapter{break-before:page;padding-top:12mm}
+  .contents{break-before:page}
+  .contents .row{padding:9px 0}
+  .case,.figrow,.cap,.stage,.figure{break-inside:avoid}
+  #c01 .case{break-inside:auto}
+  .chapter h2,.case h3{break-after:avoid}
+  p{orphans:3;widows:3}
+  @page{margin:20mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<section class="page cover" data-sec="Cover">
+  <div class="firm"><b>AI</b>superpowers</div>
+  <hr class="titlerule">
+  <h1 class="serif">Capability &amp; Selected Work</h1>
+  <div class="conf">Private and confidential · 2026</div>
+</section>
+
+<!-- ══════════ CONTENTS ══════════ -->
+<section class="page contents" data-sec="Contents">
+  <div class="caps" style="margin-bottom:18px">Contents</div>
+  <a class="row" href="#glance"><span class="no">·</span><span class="t">At a glance</span><span class="d">The footprint and the value, in four numbers</span></a>
+  <a class="row" href="#intro"><span class="no">·</span><span class="t">How we work</span><span class="d">We find the quiet losses, then we build in blocks</span></a>
+  <a class="row" href="#brain"><span class="no">·</span><span class="t">The brain</span><span class="d">Our architecture: one memory, every system connected</span></a>
+  <a class="row" href="#ledger"><span class="no">·</span><span class="t">The value ledger</span><span class="d">What the work has stopped, in verified figures</span></a>
+  <a class="row" href="#c01"><span class="no">01</span><span class="t">The enterprise platform</span><span class="d">800 people, one governed front door to AI</span></a>
+  <a class="row" href="#c02"><span class="no">02</span><span class="t">Price validation for a regulator</span><span class="d">Days of checking, done in minutes</span></a>
+  <a class="row" href="#c03"><span class="no">03</span><span class="t">Regulatory intelligence, bilingual</span><span class="d">Answers with proof, in Arabic and English</span></a>
+  <a class="row" href="#c04"><span class="no">04</span><span class="t">Decision intelligence in the EU</span><span class="d">Leadership questions answered the moment they are asked</span></a>
+  <a class="row" href="#c05"><span class="no">05</span><span class="t">An operating company, remapped</span><span class="d">The cost of manual work, made visible and priced</span></a>
+  <a class="row" href="#capab"><span class="no">06</span><span class="t">Capabilities</span><span class="d">What we build, proven by the work above</span></a>
+  <a class="row" href="#engage"><span class="no">07</span><span class="t">How we engage</span><span class="d">Three stages; the client owns everything</span></a>
+  <a class="row" href="#principal"><span class="no">·</span><span class="t">The principal</span><span class="d">Aws Naser</span></a>
+</section>
+
+<!-- ══════════ AT A GLANCE ══════════ -->
+<section class="page chapter" id="glance" data-sec="At a glance">
+  <hr class="openrule">
+  <div class="caps eyebrow">At a glance</div>
+  <h2 class="serif">Three markets. One method.</h2>
+  <p class="deck">AIsuperpowers builds AI systems that pay for themselves. Where the work stands today:</p>
+
+  <div class="figrow">
+    <div class="fig"><div class="n">3</div><div class="l">markets: the United States, the European Union, and the Gulf</div></div>
+    <div class="fig"><div class="n">$3.5<small>M</small></div><div class="l">value created for one US enterprise</div></div>
+    <div class="fig"><div class="n">$1.2<small>M</small></div><div class="l">value returned in the European Union</div></div>
+    <div class="fig"><div class="n">$4<small>M</small></div><div class="l">value in pursuit across the Gulf</div></div>
+  </div>
+</section>
+
+<!-- ══════════ HOW WE WORK ══════════ -->
+<section class="page chapter" id="intro" data-sec="How we work">
+  <hr class="openrule">
+  <div class="caps eyebrow">How we work</div>
+  <h2 class="serif">Somewhere in every company, money is quietly slipping away. We find where, we name it, and we stop it.</h2>
+  <div class="spread">
+    <div class="rail">
+      <dl>
+        <dt>The cost</dt><dd>Hours lost to manual checking. Errors that slip into approved decisions. Knowledge that leaves when people do.</dd>
+        <dt>The fix</dt><dd>Named with a number attached, then built in blocks that connect.</dd>
+      </dl>
+    </div>
+    <div class="measure">
+      <p>Most companies do not have an AI problem. They have small losses that never reach a budget line: a review that takes days instead of minutes, an error that becomes an approved price, an answer found too late to matter.</p>
+      <ul class="bullets">
+        <li><b>Price the problem first.</b> In the client's own numbers, before any proposal.</li>
+        <li><b>Build in blocks.</b> Each block does one job; the blocks connect, so each one costs less than the last.</li>
+        <li><b>Deliver in Arabic and English</b>, on the client's own infrastructure.</li>
+        <li><b>Hand over ownership.</b> Everything belongs to the client when we step back.</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="figure" style="margin-top:6px;padding:10px 0">
+    <svg class="dgm" viewBox="0 0 1600 1040" role="img" aria-label="The method as a board of three rows, find then build then own: a route from the first quiet loss to a system the client owns">
+      <!-- drawing frame -->
+      <rect x="24" y="24" width="1552" height="992" fill="none" stroke="#C9BEA6" stroke-width="1.5"/>
+      <rect x="36" y="36" width="1528" height="968" fill="none" stroke="#DCD2BE" stroke-width="1"/>
+      <!-- phase labels -->
+      <text class="ft" transform="rotate(-90 58 210)" x="58" y="215" text-anchor="middle">Find</text>
+      <text class="ft" transform="rotate(-90 58 470)" x="58" y="475" text-anchor="middle">Build</text>
+      <text class="ft" transform="rotate(-90 58 730)" x="58" y="735" text-anchor="middle">Own</text>
+      <!-- landscaped beds -->
+      <g>
+        <rect x="120" y="300" width="180" height="60" rx="14" fill="#F7ECD3" stroke="#EADCB8"/>
+        <circle cx="165" cy="330" r="19" fill="#EFDDB2" stroke="#D3B57E" stroke-width="1.5"/>
+        <circle cx="205" cy="334" r="12" fill="#F5D3B0" stroke="#E0AD7E" stroke-width="1.5"/>
+        <rect x="1120" y="96" width="190" height="60" rx="14" fill="#F7ECD3" stroke="#EADCB8"/>
+        <circle cx="1168" cy="126" r="18" fill="#EFDDB2" stroke="#D3B57E" stroke-width="1.5"/>
+        <circle cx="1208" cy="130" r="11" fill="#F5D3B0" stroke="#E0AD7E" stroke-width="1.5"/>
+        <rect x="760" y="602" width="230" height="62" rx="14" fill="#F7ECD3" stroke="#EADCB8"/>
+        <circle cx="812" cy="633" r="19" fill="#EFDDB2" stroke="#D3B57E" stroke-width="1.5"/>
+        <circle cx="855" cy="637" r="12" fill="#F5D3B0" stroke="#E0AD7E" stroke-width="1.5"/>
+        <circle cx="920" cy="633" r="15" fill="#EFDDB2" stroke="#D3B57E" stroke-width="1.5"/>
+        <rect x="330" y="616" width="180" height="60" rx="14" fill="#F7ECD3" stroke="#EADCB8"/>
+        <circle cx="378" cy="646" r="18" fill="#EFDDB2" stroke="#D3B57E" stroke-width="1.5"/>
+        <circle cx="420" cy="650" r="11" fill="#F5D3B0" stroke="#E0AD7E" stroke-width="1.5"/>
+      </g>
+      <!-- loose planting -->
+      <g stroke-width="1.5">
+        <circle cx="1505" cy="150" r="22" fill="#EFDDB2" stroke="#D3B57E"/><circle cx="1478" cy="182" r="14" fill="#F5D3B0" stroke="#E0AD7E"/>
+        <circle cx="105" cy="900" r="24" fill="#EFDDB2" stroke="#D3B57E"/><circle cx="142" cy="922" r="15" fill="#F5D3B0" stroke="#E0AD7E"/>
+        <circle cx="1345" cy="132" r="16" fill="#F5D3B0" stroke="#E0AD7E"/><circle cx="720" cy="555" r="18" fill="#EFDDB2" stroke="#D3B57E"/>
+        <circle cx="1250" cy="908" r="20" fill="#EFDDB2" stroke="#D3B57E"/><circle cx="740" cy="905" r="18" fill="#F5D3B0" stroke="#E0AD7E"/>
+      </g>
+      <!-- scattered records before stop 1 -->
+      <g fill="#FFFDF6" stroke="#E0CB96" stroke-width="1.5">
+        <rect x="98" y="258" width="32" height="42" rx="2" transform="rotate(-13 114 279)"/>
+        <rect x="150" y="278" width="32" height="42" rx="2" transform="rotate(10 166 299)"/>
+        <rect x="112" y="230" width="32" height="42" rx="2" transform="rotate(21 128 251)"/>
+      </g>
+      <!-- icon chips -->
+      <g>
+        <g><rect x="510" y="116" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><rect x="524" y="127" width="16" height="21" rx="1.5" fill="none" stroke="#A8834B" stroke-width="1.6"/><path d="M 527 133 h 10 M 527 138 h 10 M 527 143 h 6" stroke="#A8834B" stroke-width="1.4"/></g>
+        <g><rect x="1060" y="116" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><circle cx="1079" cy="135" r="8" fill="none" stroke="#A8834B" stroke-width="1.8"/><path d="M 1085 141 l 8 8" stroke="#A8834B" stroke-width="2.2" stroke-linecap="round"/></g>
+        <g><rect x="700" y="316" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><path d="M 714 348 L 714 332 L 722 324 L 733 335 L 722 348 Z" fill="none" stroke="#A8834B" stroke-width="1.7" stroke-linejoin="round"/><circle cx="719" cy="332" r="2" fill="#A8834B"/></g>
+        <g><rect x="292" y="384" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><rect x="302" y="406" width="11" height="11" fill="none" stroke="#A8834B" stroke-width="1.6"/><rect x="315" y="406" width="11" height="11" fill="none" stroke="#A8834B" stroke-width="1.6"/><rect x="308.5" y="394" width="11" height="11" fill="none" stroke="#EA580C" stroke-width="1.6"/></g>
+        <g><rect x="698" y="636" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><ellipse cx="714" cy="658" rx="7" ry="5" fill="none" stroke="#A8834B" stroke-width="1.7" transform="rotate(-35 714 658)"/><ellipse cx="726" cy="666" rx="7" ry="5" fill="none" stroke="#A8834B" stroke-width="1.7" transform="rotate(-35 726 666)"/></g>
+        <g><rect x="1228" y="636" width="44" height="44" rx="10" fill="#FFF7E6" stroke="#E3CD96"/><circle cx="1243" cy="653" r="6" fill="none" stroke="#A8834B" stroke-width="1.7"/><path d="M 1247 658 l 12 12 M 1255 666 l 4 -4 M 1259 674 l 4 -4" stroke="#A8834B" stroke-width="1.7" stroke-linecap="round"/></g>
+      </g>
+      <!-- the road: three rows, snake flow -->
+      <path d="M 90 210 H 1330 A 130 130 0 0 1 1330 470 H 270 A 130 130 0 0 0 270 730 H 1348" fill="none" stroke="#C9BEA6" stroke-width="46" stroke-linecap="round"/>
+      <path d="M 90 210 H 1330 A 130 130 0 0 1 1330 470 H 270 A 130 130 0 0 0 270 730 H 1348" fill="none" stroke="#141B26" stroke-width="38" stroke-linecap="round"/>
+      <path class="roadline" d="M 90 210 H 1330 A 130 130 0 0 1 1330 470 H 270 A 130 130 0 0 0 270 730 H 1348" fill="none" stroke="#FFFBEB" stroke-width="3"/>
+      <!-- destination: the assembled system -->
+      <g>
+        <circle class="blockglow" cx="1465" cy="745" r="92" fill="#EA580C" opacity=".3"/>
+        <g stroke="#141B26" stroke-width="2">
+          <rect x="1376" y="768" width="56" height="44" rx="4" fill="#FFFBF2"/>
+          <rect x="1438" y="768" width="56" height="44" rx="4" fill="#FFFBF2"/>
+          <rect x="1500" y="768" width="56" height="44" rx="4" fill="#FFFBF2"/>
+          <rect x="1407" y="718" width="56" height="44" rx="4" fill="#141B26"/>
+          <rect x="1469" y="718" width="56" height="44" rx="4" fill="#141B26"/>
+          <rect x="1438" y="668" width="56" height="44" rx="4" fill="#EA580C"/>
+        </g>
+        <path d="M 1432 790 h 6 M 1494 790 h 6 M 1463 768 v -6 M 1466 718 v -6 M 1435 718 v -3 M 1497 718 v -3" stroke="#EA580C" stroke-width="3"/>
+        <text class="ft" x="1466" y="856" text-anchor="middle">The system, owned</text>
+      </g>
+      <!-- the car -->
+      <g class="car" style="offset-path:path('M 90 210 H 1330 A 130 130 0 0 1 1330 470 H 270 A 130 130 0 0 0 270 730 H 1348')">
+        <rect x="-19" y="-9" width="38" height="18" rx="6" fill="#EA580C"/>
+        <rect x="-6" y="-6.5" width="9" height="13" rx="2" fill="#FFFBEB" opacity=".85"/>
+      </g>
+      <!-- stops -->
+      <g stroke="#7C8798" stroke-width="1.2" stroke-dasharray="3 5">
+        <line x1="330" y1="193" x2="330" y2="176"/><line x1="900" y1="193" x2="900" y2="176"/>
+        <line x1="1080" y1="453" x2="1080" y2="440"/><line x1="520" y1="487" x2="520" y2="514"/>
+        <line x1="560" y1="747" x2="560" y2="784"/><line x1="1080" y1="747" x2="1080" y2="784"/>
+      </g>
+      <g>
+        <g><rect x="205" y="84" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="330" cy="210" r="17" fill="#EA580C"/><text class="cn" x="330" y="216" text-anchor="middle">1</text><text class="ct" x="225" y="116">The quiet loss</text><text class="cb" x="225" y="142"><tspan x="225">Hours lost, errors approved,</tspan><tspan x="225" dy="21">knowledge walking out.</tspan></text></g>
+        <g><rect x="775" y="84" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="900" cy="210" r="17" fill="#EA580C"/><text class="cn" x="900" y="216" text-anchor="middle">2</text><text class="ct" x="795" y="116">The scan</text><text class="cb" x="795" y="142"><tspan x="795">We sit inside the real</tspan><tspan x="795" dy="21">workflows, and listen.</tspan></text></g>
+        <g><rect x="955" y="348" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="1080" cy="470" r="17" fill="#EA580C"/><text class="cn" x="1080" y="476" text-anchor="middle">3</text><text class="ct" x="975" y="380">Named in numbers</text><text class="cb" x="975" y="406"><tspan x="975">The cost, priced in the</tspan><tspan x="975" dy="21">client's own figures.</tspan></text></g>
+        <g><rect x="395" y="514" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="520" cy="470" r="17" fill="#EA580C"/><text class="cn" x="520" y="476" text-anchor="middle">4</text><text class="ct" x="415" y="546">Built in blocks</text><text class="cb" x="415" y="572"><tspan x="415">Each block does one job,</tspan><tspan x="415" dy="21">and does it fully.</tspan></text></g>
+        <g><rect x="435" y="784" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="560" cy="730" r="17" fill="#EA580C"/><text class="cn" x="560" y="736" text-anchor="middle">5</text><text class="ct" x="455" y="816">Connected</text><text class="cb" x="455" y="842"><tspan x="455">Every block linked, so the</tspan><tspan x="455" dy="21">second is cheaper than the first.</tspan></text></g>
+        <g><rect x="955" y="784" width="250" height="92" rx="6" fill="#FFFDF6" stroke="#C9BEA6"/><circle cx="1080" cy="730" r="17" fill="#EA580C"/><text class="cn" x="1080" y="736" text-anchor="middle">6</text><text class="ct" x="975" y="816">Handed over</text><text class="cb" x="975" y="842"><tspan x="975">Arabic and English, on client</tspan><tspan x="975" dy="21">infrastructure, owned outright.</tspan></text></g>
+      </g>
+      <!-- drawing strip -->
+      <line x1="60" y1="950" x2="1540" y2="950" stroke="#DCD2BE" stroke-width="1"/>
+      <text class="ft" x="60" y="984">AIsuperpowers · The method</text>
+      <text class="ft" x="1540" y="984" text-anchor="end">From quiet loss to owned system</text>
+    </svg>
+  </figure>
+  <div class="figcap">The method as a board: three rows, find, build, own; from the first quiet loss to a system the client owns outright.</div>
+  <div class="figcap-mobile">The route: the loss, the scan, priced, built, connected, handed over.</div>
+</section>
+
+<!-- ══════════ THE BRAIN ══════════ -->
+<section class="page chapter" id="brain" data-sec="The brain">
+  <hr class="openrule">
+  <div class="caps eyebrow">The brain · our architecture</div>
+  <h2 class="serif">One memory. Every system connected to it.</h2>
+  <div class="spread">
+    <div class="rail">
+      <dl>
+        <dt>What it is</dt><dd>A living organizational memory every system plugs into.</dd>
+        <dt>Status</dt><dd>Built. Our own firm runs on it daily.</dd>
+        <dt>What it ends</dt><dd>Knowledge walking out the door. Fifty tools that share nothing.</dd>
+      </dl>
+    </div>
+    <div class="measure">
+      <p>The quietest drain in a large company is memory: what one team learns, the next relearns, and when a person leaves, years of judgment leave too. Our answer is the brain, an architecture we pioneered and run ourselves: one living memory of the organization, with every system connected to it.</p>
+      <ul class="bullets">
+        <li><b>One truth.</b> Every assistant, workflow, and dashboard reads from the same memory.</li>
+        <li><b>Nothing lost.</b> Each system writes back what it learns.</li>
+        <li><b>Compounding.</b> Every new block makes the existing blocks smarter.</li>
+      </ul>
+    </div>
+  </div>
+  <figure class="figure" style="margin-top:6px">
+    <img src="img-brain-v5.jpg" alt="Bright isometric masterplan: a honey-bronze memory core at the center, warm modular blocks assembling around it, one orange block about to connect">
+    <svg class="dgm ov" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <radialGradient id="hubglow"><stop offset="0%" stop-color="#EA580C" stop-opacity=".4"/><stop offset="100%" stop-color="#EA580C" stop-opacity="0"/></radialGradient>
+        <filter id="dotblur" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="4"/></filter>
+      </defs>
+      <circle class="breathe" cx="770" cy="435" r="150" fill="url(#hubglow)"/>
+      <circle class="halo" cx="758" cy="205" r="38" fill="none" stroke="#EA580C" stroke-width="3" style="animation-delay:1s"/>
+      <g fill="#EA580C">
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 499 241 C 560 285, 625 330, 693 375');animation-delay:0s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 499 241 C 560 285, 625 330, 693 375');animation-delay:0s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 758 232 C 762 258, 766 284, 770 312');animation-delay:.9s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 758 232 C 762 258, 766 284, 770 312');animation-delay:.9s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 1046 225 C 1000 268, 955 313, 908 358');animation-delay:1.8s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 1046 225 C 1000 268, 955 313, 908 358');animation-delay:1.8s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 1167 386 C 1092 400, 1018 414, 945 429');animation-delay:2.7s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 1167 386 C 1092 400, 1018 414, 945 429');animation-delay:2.7s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 1182 562 C 1102 539, 1022 516, 942 493');animation-delay:3.6s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 1182 562 C 1102 539, 1022 516, 942 493');animation-delay:3.6s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 418 514 C 502 501, 585 489, 669 476');animation-delay:4.5s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 418 514 C 502 501, 585 489, 669 476');animation-delay:4.5s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 619 683 C 652 643, 685 603, 719 563');animation-delay:5.4s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 619 683 C 652 643, 685 603, 719 563');animation-delay:5.4s"/>
+        <circle class="dot" r="7" filter="url(#dotblur)" style="offset-path:path('M 965 691 C 938 651, 912 612, 886 572');animation-delay:6.3s"/>
+        <circle class="dot" r="4" style="offset-path:path('M 965 691 C 938 651, 912 612, 886 572');animation-delay:6.3s"/>
+      </g>
+    </svg>
+    <span class="lab" style="left:55%;top:14%">Blocks arrive, and click in</span>
+    <span class="lab" style="left:24%;top:15%">People</span>
+    <span class="lab" style="left:13%;top:52%">Data</span>
+    <span class="lab" style="right:8%;top:38%">Process</span>
+    <span class="lab" style="left:58%;bottom:12%">Systems</span>
+    <span class="lab" style="left:44%;top:62%">One shared memory</span>
+  </figure>
+
+  <div class="figcap">The brain as a masterplan: one memory at the center, every block placed around it, connected, and kept.</div>
+  <div class="figcap-mobile">Center: one shared memory · around it: blocks placed, connected, kept.</div>
+</section>
+
+<!-- ══════════ VALUE LEDGER ══════════ -->
+<section class="page chapter" id="ledger" data-sec="The value ledger">
+  <hr class="openrule">
+  <div class="caps eyebrow">The value ledger</div>
+  <h2 class="serif">What we found, and what stopped.</h2>
+  <p class="deck">Four engagements, four verified numbers.</p>
+
+  <div class="figrow">
+    <div class="fig"><div class="n">800</div><div class="l">people on one governed AI platform: learning, working, measured</div></div>
+    <div class="fig"><div class="n">28<small>/30</small></div><div class="l">price lines validated exactly on a live dossier, in minutes instead of days</div></div>
+    <div class="fig"><div class="n">3,700<small>+</small></div><div class="l">regulation sections answered in seconds, cited, in Arabic and English</div></div>
+    <div class="fig"><div class="n">470<small>K</small></div><div class="l">Omani rials of three-year losses mapped at one logistics operator</div></div>
+  </div>
+</section>
+
+<!-- ══════════ CASE 01 ══════════ -->
+<section class="page chapter" id="c01" data-sec="01 · The enterprise platform">
+  <div class="ghost">01</div>
+  <hr class="openrule">
+  <div class="caps eyebrow">Selected work</div>
+  <h2 class="serif">The enterprise platform.</h2>
+
+  <div class="case" style="border-top:none;padding-top:6px">
+    <div class="chead">
+      <span class="meta"><span>Enterprise · United States</span><span>Roughly 1.5 billion dollars in scale</span><span>2026, ongoing</span><span>Role: sole AI architect</span></span>
+    </div>
+    <div class="cbody">
+      <div class="cfacts">
+        <div class="f"><div class="fn">800</div><div class="fl">employees on the platform</div></div>
+        <div class="f"><div class="fn">11</div><div class="fl">assistants in production</div></div>
+        <div class="f"><div class="fn">1,753</div><div class="fl">assistant launches to date</div></div>
+        <div class="f"><div class="fn">36%</div><div class="fl">feature adoption, month three, rising</div></div>
+        <div class="f"><div class="fn">100%</div><div class="fl">security compliance in the internal store</div></div>
+      </div>
+      <div>
+        <div class="painline">Eight hundred people were using AI in scattered experiments nobody could see: no one could say what was safe, what was actually used, or what any of it was worth.</div>
+        <div class="cpart"><span class="caps">What we built</span>
+          <p>One platform that became the company's single front door to AI. People learn on it: an academy with an eight-module certification and a super-user program that turns employees into builders. People work on it: a library of assistants connected to company data, and an internal store of approved solutions. And leadership governs on it: every request for a new connection, key, or capability passes through risk-tiered approval, and every solution reports its own cost and return.</p>
+        </div>
+        <div class="cpart"><span class="caps">What changed · as of July 2026, three months after launch</span>
+          <p>The experiments stopped being invisible. Eleven assistants run in production and have been launched 1,753 times. Adoption stands at 136 active users and 36 percent feature adoption, on a curve still in its first quarter. Five solutions are live in the internal store at 100 percent security compliance. The company now sees its entire AI life on one screen it owns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CASES 02-05 ══════════ -->
+<section class="page chapter" data-sec="Selected work">
+  <hr class="openrule">
+  <div class="caps eyebrow">Selected work, continued</div>
+  <h2 class="serif">Four systems, three countries.</h2>
+
+  <div class="case" id="c02">
+    <div class="ghost">02</div>
+    <div class="chead">
+      <span class="cno">02</span>
+      <h3>Price validation for a regulator</h3>
+      <span class="meta"><span>Government · Gulf</span><span>2026</span></span>
+    </div>
+    <div class="cbody">
+      <div class="cfacts">
+        <div class="f"><div class="fn">28/30</div><div class="fl">items matched exactly, live dossier</div></div>
+        <div class="f"><div class="fn">13</div><div class="fl">source documents reconciled per case</div></div>
+      </div>
+      <div>
+        <div class="painline">Every price-increase request buried a review team in days of manual cross-checking, and errors still slipped through into approved prices.</div>
+        <div class="cpart"><span class="caps">What changed</span>
+          <p>We built an engine that reads the full dossier the way the best auditor would: every submitted price checked against import and retail documents, line by line, with the reasoning shown for each item. On a live 30-product case it matched 28 of 30 exactly, flagged the true gaps, and caught mistakes the human review had already let through. Days of checking became minutes, with the evidence attached.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case" id="c03">
+    <div class="ghost">03</div>
+    <div class="chead">
+      <span class="cno">03</span>
+      <h3>Regulatory intelligence, bilingual</h3>
+      <span class="meta"><span>Government · Gulf</span><span>2026</span></span>
+    </div>
+    <div class="cbody">
+      <div class="cfacts">
+        <div class="f"><div class="fn">3,700+</div><div class="fl">regulation sections answerable</div></div>
+        <div class="f"><div class="fn">2</div><div class="fl">languages, natively</div></div>
+      </div>
+      <div>
+        <div class="painline">The answers existed, buried across thousands of pages of Arabic and English regulation; finding one cost hours, and it still arrived without proof.</div>
+        <div class="cpart"><span class="caps">What changed</span>
+          <p>A question asked in either language now returns the answer in seconds, with the source page displayed beside it and the exact supporting passage highlighted. Nothing is asserted that cannot be shown. More than 3,700 sections of regulation and market reporting are covered, and the same architecture accepts any new document set, isolated per institution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case" id="c04">
+    <div class="ghost">04</div>
+    <div class="chead">
+      <span class="cno">04</span>
+      <h3>Decision intelligence in the EU</h3>
+      <span class="meta"><span>Enterprise · Poland</span><span>2025</span></span>
+    </div>
+    <div class="cbody">
+      <div class="cfacts">
+        <div class="f"><div class="fn">11</div><div class="fl">analytics modules, one screen</div></div>
+        <div class="f"><div class="fn">EU</div><div class="fl">delivered under European data rules</div></div>
+      </div>
+      <div>
+        <div class="painline">Every leadership question waited days while numbers were assembled by hand from spreadsheets and systems that did not speak to each other.</div>
+        <div class="cpart"><span class="caps">What changed</span>
+          <p>A telecom operator's entire commercial picture now lives on one screen: revenue, receivables, service, customers. Leadership asks in plain words and gets the answer from live data, with a predictive layer watching revenue and customer loss before they move. The report cycle stopped being the speed limit of decisions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case" id="c05" style="border-bottom:1px solid var(--ink)">
+    <div class="ghost">05</div>
+    <div class="chead">
+      <span class="cno">05</span>
+      <h3>An operating company, remapped</h3>
+      <span class="meta"><span>Logistics · Gulf</span><span>2026</span></span>
+    </div>
+    <div class="cbody">
+      <div class="cfacts">
+        <div class="f"><div class="fn">OMR 470K</div><div class="fl">three-year value, modeled from the client's own figures</div></div>
+        <div class="f"><div class="fn">8</div><div class="fl">operating modules, working prototype</div></div>
+      </div>
+      <div>
+        <div class="painline">Growth was capped by manual coordination: documents living in chat threads, receivables tracked from memory, and every new client meaning another hire.</div>
+        <div class="cpart"><span class="caps">What changed</span>
+          <p>We mapped the whole operation and returned it as a working eight-module prototype: a client assistant on the channel customers already use, document intake that reads paperwork on arrival, receivables that chase themselves, and jobs visible end to end. Priced strictly from the owner's own numbers, the model shows roughly OMR 470,000 over three years, and it is labeled as the projection it is. The waste now has a price, and a plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CAPABILITIES ══════════ -->
+<section class="page chapter" id="capab" data-sec="06 · Capabilities">
+  <div class="ghost">06</div>
+  <hr class="openrule">
+  <div class="caps eyebrow">Capabilities</div>
+  <h2 class="serif">What we build.</h2>
+  <p class="deck">Five disciplines, each proven by the work in this document.</p>
+
+  <div class="cap"><b>AI adoption platforms</b>
+    <div><p>Everything an organization needs to adopt AI as one company: learning, working, governing, measuring.</p><span class="proof">Proven in 01</span></div>
+  </div>
+  <div class="cap"><b>The brain</b>
+    <div><p>Our pioneering architecture: one organizational memory that every system connects to, so nothing learned is ever lost.</p><span class="proof">Built, and running our own operation daily</span></div>
+  </div>
+  <div class="cap"><b>Document intelligence, Arabic and English</b>
+    <div><p>Systems that read regulation, contracts, and dossiers, answer with proof, and validate submissions line by line.</p><span class="proof">Proven in 02 and 03</span></div>
+  </div>
+  <div class="cap"><b>Decision intelligence</b>
+    <div><p>The company on one screen, questions asked in plain words, answers from live data with prediction built in.</p><span class="proof">Proven in 04</span></div>
+  </div>
+  <div class="cap" style="border-bottom:1px solid var(--ink)"><b>Operating transformation</b>
+    <div><p>A whole operating company remapped around AI, with the value priced from the client's own numbers before anything is built.</p><span class="proof">Proven in 05</span></div>
+  </div>
+</section>
+
+<!-- ══════════ HOW WE ENGAGE ══════════ -->
+<section class="page chapter" id="engage" data-sec="07 · How we engage">
+  <div class="ghost">07</div>
+  <hr class="openrule">
+  <div class="caps eyebrow">How we engage</div>
+  <h2 class="serif">Three stages. The client owns everything.</h2>
+
+  <div class="stages">
+    <div class="stage"><span class="sn">I</span><b>Find the real cost</b><p>We sit inside the actual workflows and come back with every loss named and priced. No proposal before that.</p></div>
+    <div class="stage"><span class="sn">II</span><b>Build and deploy</b><p>Senior engineers build on the client's own environment. Working systems enter daily use in weeks, measured from the first day.</p></div>
+    <div class="stage"><span class="sn">III</span><b>Handover</b><p>We train the client's people to run, improve, and extend everything, then we step back. Dependence on us is a design failure.</p></div>
+  </div>
+
+  <div class="spread" style="margin-top:34px">
+    <div class="rail"><span class="caps">Posture</span></div>
+    <div class="measure">
+      <p>All systems run on the client's own infrastructure or sovereign cloud. Data never leaves the client's walls. The client owns the code without exception, and engagements are fixed in scope and price. It aligns with the Kingdom's data-sovereignty expectations, including the Personal Data Protection Law and Vision 2030.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ THE PRINCIPAL ══════════ -->
+<section class="page chapter principal" id="principal" data-sec="The principal" style="padding-top:70px">
+  <hr class="openrule">
+  <div class="caps eyebrow">The principal</div>
+  <div class="spread">
+    <div class="rail">
+      <dl>
+        <dt>Name</dt><dd>Aws Naser</dd>
+        <dt>Role</dt><dd>Co-founder · AI Business Architect</dd>
+        <dt>Based</dt><dd>Muscat</dd>
+        <dt>Working languages</dt><dd>Arabic, English</dd>
+      </dl>
+    </div>
+    <div class="measure">
+      <p class="name serif">Aws Naser</p>
+      <div class="role">Co-founder · AI Business Architect</div>
+      <p>Aws leads every engagement personally. He hears a business problem stated plainly, in Arabic or English, and carries it to a running system without losing anything in translation. He is the architect behind every system in this document.</p>
+      <p>Clients work directly with him and with the senior engineers who build their systems. No account layers, no juniors.</p>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <div>
+      <span class="caps">Contact</span>
+      Aws Naser · <a href="mailto:aws@aisuperpowers.io">aws@aisuperpowers.io</a><br>
+      aisuperpowers.io<br><br>
+      Aws will walk your team through any system in this document live, in Arabic or English.
+    </div>
+    <div class="right">
+      <span class="caps">Document</span>
+      AIsuperpowers · 2026
+    </div>
+  </div>
+</section>
+
+<footer class="running">
+  <span>AIsuperpowers</span>
+  <span class="mid" id="runsec">Capability &amp; Selected Work · 2026</span>
+  <span>Private &amp; confidential · <button class="theme" id="themeBtn">Dark</button></span>
+</footer>
+
+<script>
+'use strict';
+const btn = document.getElementById('themeBtn');
+function lab(){ btn.textContent = document.documentElement.dataset.theme === 'dark' ? 'Light' : 'Dark'; }
+btn.onclick = () => { const r = document.documentElement; r.dataset.theme = r.dataset.theme === 'dark' ? 'light' : 'dark'; lab(); };
+lab();
+const secs = [...document.querySelectorAll('[data-sec]')];
+const run = document.getElementById('runsec');
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) run.textContent = e.target.dataset.sec + ' · 2026'; });
+}, { rootMargin: '-40% 0px -55% 0px' });
+secs.forEach(s => io.observe(s));
+</script>
+</body>
+</html>
